@@ -1,13 +1,160 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+main{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  padding-top: 10px;
+}
+
+.container{
+  max-width: 1024px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.note-list{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 16px;
+  padding: 0 10px;
+}
+
+.note{
+  background: #fff580;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 10px;
+  border-radius: 10px;
+  min-height: 200px;
+  white-space: pre-wrap; /* cho phép xuống dòng */
+  font-size: 1rem;
+}
+
+.note-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.delete-icon{
+  cursor: pointer;
+  font-size: 1.4rem;
+}
+
+.delete-icon:hover{
+  color: red;
+}
+
+.add-note{
+  background: #5cd4c3;
+}
+
+textarea {
+  resize:none;
+  width: 100%;
+  height: 180px;
+  background: #5cd4c3;
+  border: none;
+  font-size: 1rem;
+}
+
+textarea::-webkit-scrollbar {
+  width: 10px;
+}
+
+textarea::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+textarea::-webkit-scrollbar-thumb {
+  background: grey; 
+  border-radius: 10px;
+}
+
+textarea::-webkit-scrollbar-thumb:hover {
+  background: #b30000; 
+}
+
+textarea:focus {
+  outline: none;
+}
+
+.save {
+  background: #4c8c8c;
+  border-radius: 10px;
+  border: none;
+  padding: 6px 10px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.save:hover{
+  opacity: 0.6;
+}
+
+.search {
+  background: #e7e6e8;
+  height: 30px;
+  margin: 10px 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  font-size: 1.6rem;
+  padding-left: 6px;
+}
+
+input {
+  width: 94%;
+  background: #e7e6e8;
+  border: none;
+  padding-left: 6px;
+}
+
+input:focus {
+  outline: none;
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  margin: 10px  ;
+}
+
+.btn-toggle {
+  border: none;
+  border-radius: 10px;
+  background: #e7e6e8;
+  padding: 6px;
+  cursor: pointer;
+}
+
+.btn-toggle:hover {
+  background-color: orange;
+}
+
+.dark-mode {
+  background: #35363a;
+}
+
+.dark-mode-text {
+  color: #fff;
 }
