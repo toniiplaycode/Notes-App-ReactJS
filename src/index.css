@@ -150,6 +150,10 @@ textarea:focus {
   padding-left: 6px;
 }
 
+input::placeholder, textarea::placeholder {
+  color: #006666;
+}
+
 input {
   width: 94%;
   background: #e7e6e8;
