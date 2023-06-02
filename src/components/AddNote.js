@@ -23,7 +23,7 @@ const AddNote = () => {
                     {remaining-inputAdd.length} Remaining
                 </div>
                 <div className="note-footer__left">
-                    <button className="save" onClick={handleAddNote}>Save</button>
+                    <button className="add" onClick={handleAddNote}>Add</button>
                 </div>
             </div>
         </div>

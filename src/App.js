@@ -24,12 +24,13 @@ const App = () => {
         {
           id: nanoid(),
           text: '- This is an example note of Tonii\n- You can delete it ',
-          date: '11/05/2023'
+          date: '11/05/2023',
+          isEditNote: false
         }
       ]
   });
 
-  // lưu noteList, modeDark lên local storage
+  // ----------lưu noteList, modeDark lên local storage-----------
   useEffect(()=>{
     localStorage.setItem('noteList', JSON.stringify(noteList));
   },[noteList]);
@@ -38,6 +39,7 @@ const App = () => {
     localStorage.setItem('modeDark', JSON.stringify(modeDark));
   },[modeDark]);
 
+  // ------------Thêm note------------
   const [inputAdd, setInputAdd] = useState('');
 
   const handleAddNote = () => {
@@ -49,16 +51,18 @@ const App = () => {
           {
             id: nanoid(),
             text: inputAdd,
-            date: currentdate
+            date: currentdate,
+            isEditNote: false
           }
         ]
       )
       setInputAdd('');
     } else {
-      alert('Note is empty !')
+      alert('Note không được để trống !')
     }
   }
   
+  // ----------xoá note-----------
   const handleDeleteNote = (id) => {
     let checkConfirmDelete = window.confirm("Bạn có chắc là xoá note này chứ ?");
     if(checkConfirmDelete) {
@@ -67,6 +71,43 @@ const App = () => {
     }
   }
 
+  // ------------sửa note-----------
+  const [inputEdit, setInputEdit] = useState('');
+
+  const handleIsEdit = (id) => {
+    // dùng map để tìm note theo id và sửa isEditNote:true
+    setNoteList(noteList.map((note) => {
+      if(note.id === id) {
+        return {
+          ...note,
+          isEditNote: true
+        };
+      }
+      return note;
+    }));
+  }
+
+  // gán lại giá trị edit
+  const handleEdit = (id) => {
+    if(inputEdit.trim().length > 0) {
+      setNoteList(noteList.map((note) => {
+        if(note.id === id) {
+          return {
+            ...note,
+            text: inputEdit,
+            isEditNote: false
+          };
+        }
+        return note;
+      }))
+
+      setInputEdit('');
+    } else {
+      alert('Note không được để trống !');
+    }
+  }
+
+  // -----------tìm kiếm--------------
   const [inputSearch, setInputSearch] = useState('');
 
   const valueContext = {
@@ -78,7 +119,11 @@ const App = () => {
     inputSearch,
     setInputSearch,
     modeDark,
-    setModeDark
+    setModeDark,
+    inputEdit,
+    setInputEdit,
+    handleIsEdit,
+    handleEdit,
   }
 
   return (

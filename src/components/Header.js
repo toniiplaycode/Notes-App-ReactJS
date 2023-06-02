@@ -6,7 +6,9 @@ const Header = () => {
 
     return(
         <div className="header">
-            <h1 className={modeDark && "dark-mode-text"}>Notes</h1>
+            <div>
+                <h1 className={modeDark && "dark-mode-text"}>Notes</h1>
+            </div>
             <div>
                 <button className="btn-toggle" onClick={()=>setModeDark(!modeDark)}>Toggle Mode</button>
             </div>

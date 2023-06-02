@@ -24,7 +24,7 @@ const NoteList = () => {
 
     let noteListSearch = noteList;
     
-    noteListSearch = noteList.filter((note) => note.text.toLowerCase().includes(inputSearch)); // search
+    noteListSearch = noteList.filter((note) => note.text.toLowerCase().includes(inputSearch.toLowerCase())); // search
 
     useEffect(()=>{
         if(noteListSearch.length === 0){
@@ -49,6 +49,7 @@ const NoteList = () => {
                         <Note 
                             key={note.id} 
                             id={note.id} 
+                            isEditNote={note.isEditNote}
                             text={note.text} 
                             date={note.date} 
                             handleDeleteNote={handleDeleteNote}
