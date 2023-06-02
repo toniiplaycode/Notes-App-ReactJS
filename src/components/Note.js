@@ -11,9 +11,9 @@ const Note = ({id, isEditNote, text, date, handleDeleteNote}) => {
     useEffect(()=>{
         setInputEdit(text);
     },[isEditNote])
-    
+
     return(
-        <div className="note">
+        <div className="note" onDoubleClick={()=>handleIsEdit(id)}>
             <div>
                 {isEditNote
                 ? 
